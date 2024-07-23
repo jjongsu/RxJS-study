@@ -1,1 +1,1 @@
-export const random = (): number => Math.floor(Math.random() * Math.floor(8));
+export const random = (cellNum: number): number => Math.floor(Math.random() * Math.floor(cellNum));
