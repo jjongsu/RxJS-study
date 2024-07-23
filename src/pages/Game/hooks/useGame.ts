@@ -24,6 +24,8 @@ export default function useGame2({ cellNum, divRef, isStart }: { cellNum: number
     const takePlayerInput$ = (randomSequence: number[]) => {
         return () =>
             fromEvent(document, 'click').pipe(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 take(randomSequence.length),
                 scan((acc: number[], curr: MouseEvent) => [...acc, parseInt((curr.target as HTMLDivElement)['id'])], []),
                 switchMap(checkIfGameOver$(randomSequence)),
